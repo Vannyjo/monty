@@ -7,13 +7,13 @@
  * @cline:  the line number
  * Return: no return
  */
-void _push(stack_t **doubly, unsigned int cline)
+void _push(stack_t **doubly, unsigned int change)
 {
 	int n, j;
 
 	if (!vglo.arg)
 	{
-		dprintf(2, "L%u: ", cline);
+		dprintf(2, "L%u: ", change);
 		dprintf(2, "usage: push integer\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
@@ -23,7 +23,7 @@ void _push(stack_t **doubly, unsigned int cline)
 	{
 		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
 		{
-			dprintf(2, "L%u: ", cline);
+			dprintf(2, "L%u: ", change);
 			dprintf(2, "usage: push integer\n");
 			free_vglo();
 			exit(EXIT_FAILURE);
@@ -45,10 +45,10 @@ void _push(stack_t **doubly, unsigned int cline)
  * @cline: line numbers
  * Return: no return
  */
-void _pall(stack_t **doubly, unsigned int cline)
+void _pall(stack_t **doubly, unsigned int change)
 {
 	stack_t *aux;
-	(void)cline;
+	(void)change;
 
 	aux = *doubly;
 
@@ -66,13 +66,13 @@ void _pall(stack_t **doubly, unsigned int cline)
  * @cline: line number
  * Return: no return
  */
-void _pint(stack_t **doubly, unsigned int cline)
+void _pint(stack_t **doubly, unsigned int change)
 {
-	(void)cline;
+	(void)change;
 
 	if (*doubly == NULL)
 	{
-		dprintf(2, "L%u: ", cline);
+		dprintf(2, "L%u: ", change);
 		dprintf(2, "can't pint, stack empty\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
@@ -88,13 +88,13 @@ void _pint(stack_t **doubly, unsigned int cline)
  * @cline: line number
  * Return: no return
  */
-void _pop(stack_t **doubly, unsigned int cline)
+void _pop(stack_t **doubly, unsigned int change)
 {
 	stack_t *aux;
 
 	if (doubly == NULL || *doubly == NULL)
 	{
-		dprintf(2, "L%u: can't pop an empty stack\n", cline);
+		dprintf(2, "L%u: can't pop an empty stack\n", change);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
@@ -110,7 +110,7 @@ void _pop(stack_t **doubly, unsigned int cline)
  * @cline: line number
  * Return: no return
  */
-void _swap(stack_t **doubly, unsigned int cline)
+void _swap(stack_t **doubly, unsigned int change)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -122,7 +122,7 @@ void _swap(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't swap, stack too short\n", cline);
+		dprintf(2, "L%u: can't swap, stack too short\n", change);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}

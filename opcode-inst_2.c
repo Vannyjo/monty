@@ -7,10 +7,10 @@
  * @cline: the line number;
  * Return:  return nothing
  */
-void _queue(stack_t **doubly, unsigned int cline)
+void _queue(stack_t **doubly, unsigned int change)
 {
 	(void)doubly;
-	(void)cline;
+	(void)change;
 
 	vglo.lifo = 0;
 }
@@ -22,10 +22,10 @@ void _queue(stack_t **doubly, unsigned int cline)
  * @cline: line number;
  * Return: no return
  */
-void _stack(stack_t **doubly, unsigned int cline)
+void _stack(stack_t **doubly, unsigned int change)
 {
 	(void)doubly;
-	(void)cline;
+	(void)change;
 
 	vglo.lifo = 1;
 }
@@ -37,7 +37,7 @@ void _stack(stack_t **doubly, unsigned int cline)
  * @cline: line number;
  * Return: no return
  */
-void _add(stack_t **doubly, unsigned int cline)
+void _add(stack_t **doubly, unsigned int change)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -49,14 +49,14 @@ void _add(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't add, stack too short\n", cline);
+		dprintf(2, "L%u: can't add, stack too short\n", change);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
 	aux = (*doubly)->next;
 	aux->n += (*doubly)->n;
-	_pop(doubly, cline);
+	_pop(doubly, change);
 }
 
 /**
@@ -66,10 +66,10 @@ void _add(stack_t **doubly, unsigned int cline)
  * @cline: line number;
  * Return: no return
  */
-void _nop(stack_t **doubly, unsigned int cline)
+void _nop(stack_t **doubly, unsigned int change)
 {
 	(void)doubly;
-	(void)cline;
+	(void)change;
 }
 
 /**
@@ -79,7 +79,7 @@ void _nop(stack_t **doubly, unsigned int cline)
  * @cline: line number;
  * Return: no return
  */
-void _sub(stack_t **doubly, unsigned int cline)
+void _sub(stack_t **doubly, unsigned int change)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -91,12 +91,12 @@ void _sub(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't sub, stack too short\n", cline);
+		dprintf(2, "L%u: can't sub, stack too short\n", change);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
 	aux = (*doubly)->next;
 	aux->n -= (*doubly)->n;
-	_pop(doubly, cline);
+	_pop(doubly, change);
 }

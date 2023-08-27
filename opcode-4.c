@@ -7,11 +7,11 @@
  * @cline:  the line number;
  * Return:  returning nothing
  */
-void _rotl(stack_t **doubly, unsigned int cline)
+void _rotl(stack_t **doubly, unsigned int change)
 {
 	stack_t *aux1 = NULL;
 	stack_t *aux2 = NULL;
-	(void)cline;
+	(void)change;
 
 	if (*doubly == NULL)
 		return;
@@ -39,10 +39,10 @@ void _rotl(stack_t **doubly, unsigned int cline)
  * @cline: line number
  * Return: no return
  */
-void _rotr(stack_t **doubly, unsigned int cline)
+void _rotr(stack_t **doubly, unsigned int change)
 {
 	stack_t *aux = NULL;
-	(void)cline;
+	(void)change;
 
 	if (*doubly == NULL)
 		return;
